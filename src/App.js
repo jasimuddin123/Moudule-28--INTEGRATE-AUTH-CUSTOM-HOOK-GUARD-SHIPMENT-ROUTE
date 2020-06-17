@@ -12,6 +12,7 @@ import Review from './Components/Review/Review';
 import Inventory from './Components/Inventory/Inventory';
 import NotFound from './Components/NotFound/NotFound';
 import ProductDetails from './Components/ProductDetails/ProductDetails';
+import Login from './Components/Login/Login';
 
 
 
@@ -39,6 +40,9 @@ function App() {
             </Route>
            <Route path="/product/:productKey">
              <ProductDetails></ProductDetails>
+           </Route>
+           <Route path="/login">
+              <Login></Login>
            </Route>
            
             <Route path="*">
