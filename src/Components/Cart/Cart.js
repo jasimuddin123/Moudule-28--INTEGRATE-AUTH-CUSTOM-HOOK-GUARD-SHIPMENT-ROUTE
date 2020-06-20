@@ -1,8 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import {UserContext} from '../../App'
 
 const Cart = (props) => {
     const cart = props.cart;
+    const user = useContext(UserContext);
+    console.log(user);
 
     let total = 0;
     for (let i = 0; i < cart.length; i++) {
@@ -31,6 +35,9 @@ const Cart = (props) => {
            <Link to="./review">
            <button class="main-button">Order Review </button>
            </Link>
+           {
+               <p>{user}</p>
+           }
         </div>
     );
 };

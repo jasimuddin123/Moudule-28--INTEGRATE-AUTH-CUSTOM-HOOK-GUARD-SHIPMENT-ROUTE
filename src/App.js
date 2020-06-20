@@ -13,20 +13,23 @@ import Inventory from './Components/Inventory/Inventory';
 import NotFound from './Components/NotFound/NotFound';
 import ProductDetails from './Components/ProductDetails/ProductDetails';
 import Login from './Components/Login/Login';
+import { createContext } from 'react';
 
 
-
+export const UserContext = createContext();
 
 
 function App() {
+  const user ={name:'KhoduMia', email:'kahodumia@gmail.com'}
   return (
-    
+
     <div>
-       <Header></Header>
-      <Router>
-        <Switch>
+      <UserContext.Provider value={user.name}>
+        <Header></Header>
+        <Router>
+          <Switch>
             <Route path="/shop">
-            <Shop></Shop>
+              <Shop></Shop>
             </Route>
 
             <Route path="/review">
@@ -38,25 +41,25 @@ function App() {
             <Route exact path="/">
               <Shop></Shop>
             </Route>
-           <Route path="/product/:productKey">
-             <ProductDetails></ProductDetails>
-           </Route>
-           <Route path="/login">
+            <Route path="/product/:productKey">
+              <ProductDetails></ProductDetails>
+            </Route>
+            <Route path="/login">
               <Login></Login>
-           </Route>
-           
+            </Route>
+
             <Route path="*">
               <NotFound></NotFound>
             </Route>
 
-        </Switch>
+          </Switch>
 
-      </Router>
-     
-      
-    
-     </div>  
-  
+        </Router>
+
+      </UserContext.Provider>
+
+    </div>
+
   );
 }
 
