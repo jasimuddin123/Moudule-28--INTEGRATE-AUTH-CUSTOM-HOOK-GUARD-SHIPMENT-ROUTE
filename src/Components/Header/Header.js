@@ -1,11 +1,12 @@
 import React from 'react';
 import logo from '../../images/logo.png';
 import './Header.css'
-import { useContext } from 'react';
-import { UserContext } from '../../App';
+
+
 import { useState } from 'react';
 import { useRef } from 'react';
 import { useEffect } from 'react';
+import {useAuth} from '../Login/useAuth';
 
 const usePrevious = value =>{
     const prev = useRef();
@@ -18,7 +19,8 @@ const usePrevious = value =>{
 }
 
 const Header = () => {
-    const user = useContext(UserContext)
+   const auth = useAuth();
+    console.log(auth);
     const [count, setCount] = useState(0);
     const previous = usePrevious(count);
     return (
@@ -31,7 +33,7 @@ const Header = () => {
                 <a href="/shop"> Shop</a>
                 <a href="/review">Oreder Review</a>
                 <a href="/inventory">Mange Inventory</a>
-                <span style={{color:'cyan',fontWeight:'bold'}}>{user}</span>
+                <span style={{color:'cyan',fontWeight:'bold'}}></span>
             </nav>
 
         </div>

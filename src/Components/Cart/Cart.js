@@ -1,12 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useContext } from 'react';
-import {UserContext} from '../../App'
+import { useAuth } from '../Login/useAuth';
+
+
 
 const Cart = (props) => {
     const cart = props.cart;
-    const user = useContext(UserContext);
-    console.log(user);
+    const auth = useAuth();
+    // const user = useContext(UserContext);
+    console.log(auth.user);
 
     let total = 0;
     for (let i = 0; i < cart.length; i++) {
@@ -36,7 +38,7 @@ const Cart = (props) => {
            <button class="main-button">Order Review </button>
            </Link>
            {
-               <p>{user}</p>
+               <p></p>
            }
         </div>
     );

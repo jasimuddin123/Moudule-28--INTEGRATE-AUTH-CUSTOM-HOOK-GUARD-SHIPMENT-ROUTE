@@ -14,9 +14,10 @@ import NotFound from './Components/NotFound/NotFound';
 import ProductDetails from './Components/ProductDetails/ProductDetails';
 import Login from './Components/Login/Login';
 import { createContext } from 'react';
+import { AuthContextProvider } from './Components/Login/useAuth';
 
 
-export const UserContext = createContext();
+
 
 
 function App() {
@@ -24,7 +25,7 @@ function App() {
   return (
 
     <div>
-      <UserContext.Provider value={user.name}>
+      <AuthContextProvider>
         <Header></Header>
         <Router>
           <Switch>
@@ -56,7 +57,7 @@ function App() {
 
         </Router>
 
-      </UserContext.Provider>
+        </AuthContextProvider>
 
     </div>
 
